@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Calculator {
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Введите ваше выражение (число не может быть больше 10)");
+        System.out.println("Введите ваше выражение (принимаются числа от 1 до 10):");
         String expression = sc.nextLine();
         System.out.println("Результат выражения: " + estimation(expression));
     }
@@ -32,7 +32,7 @@ public class Calculator {
             number2 = ToRoman.RomanNum(tokens[1]);
 
             if (number1 > 10 || number2 > 10) throw new Exception("Числа не могут быть больше 10");
-            if (number1 < 0 || number2 < 0) throw new Exception("Римские числа не могут быть меньше 0");
+            if (number1 < 1 || number2 < 1) throw new Exception("Числа не могут быть меньше 1");
 
             int itog = estimation(number1, number2, operation);
             if (itog < 1) throw new Exception("Резльтатом работы с римскими числами могут быть только положительные числа");
@@ -43,6 +43,7 @@ public class Calculator {
             number1 = Integer.parseInt(tokens[0]);
             number2 = Integer.parseInt(tokens[1]);
             if (number1 > 10 || number2 > 10) throw new Exception("Числа не могут быть больше 10");
+            if (number1 < 1 || number2 < 1) throw new Exception("Числа не могут быть меньше 1");
             if (minus) number1 = -number1;
             int itog = estimation(number1, number2, operation);
             result = String.valueOf(itog);
